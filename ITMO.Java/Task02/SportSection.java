@@ -1,4 +1,4 @@
-package JavaBasics.Task02;
+package Task02;
 
 public enum SportSection {
     FOOTBALL,
