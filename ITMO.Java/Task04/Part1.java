@@ -7,7 +7,7 @@ public class Part1 {
     public static void main(String[] args) {
         oddNumbersFromOneToNN();
 
-        divByThreeAndFive();
+        divByThreeAndFive(100);
 
         System.out.println("Результат: " + sumCompare(5, 10, 15));
         System.out.println();
@@ -23,51 +23,55 @@ public class Part1 {
     }
 
     private static void oddNumbersFromOneToNN() {
-        for (int i = 1; i < 100; i++) {
-            if (i % 2 == 1) {
-                System.out.print(i + " ");
-            }
+        for (int i = 1; i < 100; i += 2) {
+            System.out.print(i + " ");
         }
         System.out.println();
         System.out.println();
     }
 
-    private static void divByThreeAndFive() {
-        ArrayList<Integer> dividedBy3 = new ArrayList<>();
-        ArrayList<Integer> dividedBy5 = new ArrayList<>();
-        ArrayList<Integer> dividedBy3And5 = new ArrayList<>();
+    private static void divByThreeAndFive(int value) {
+        int[] dividedBy3 = new int[value];
+        int[] dividedBy5 = new int[value];
+        int[] dividedBy3And5 = new int[value];
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 1; i <= value; i++) {
             if (i % 3 == 0 && i % 5 != 0) {
-                dividedBy3.add(i);
+                dividedBy3[i-1] = i;
                 continue;
             }
 
             if (i % 3 != 0 && i % 5 == 0) {
-                dividedBy5.add(i);
+                dividedBy5[i-1] = i;
                 continue;
             }
 
             if (i % 3 == 0) {
-                dividedBy3And5.add(i);
+                dividedBy3And5[i-1] = i;
             }
         }
 
         System.out.print("Делится на 3: ");
         for (Integer i : dividedBy3) {
-            System.out.print(i + ", ");
+            if (i != 0) {
+                System.out.print(i + ", ");
+            }
         }
         System.out.println();
 
         System.out.print("Делится на 5: ");
         for (Integer i : dividedBy5) {
-            System.out.print(i + ", ");
+            if (i != 0) {
+                System.out.print(i + ", ");
+            }
         }
         System.out.println();
 
         System.out.print("Делится на 3 и 5: ");
         for (Integer i : dividedBy3And5) {
-            System.out.print(i + ", ");
+            if (i != 0) {
+                System.out.print(i + ", ");
+            }
         }
         System.out.println();
         System.out.println();
@@ -89,7 +93,7 @@ public class Part1 {
 
     private static boolean firstAndLastNumCheck(int[] intArray) {
         System.out.println(Arrays.toString(intArray));
-        return intArray[0] == 3 && intArray[intArray.length-1] == 3;
+        return intArray[0] == 3 && intArray[intArray.length - 1] == 3;
     }
 
     private static boolean containsOneAndThree(int[] intArray) {
