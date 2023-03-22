@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,12 +21,15 @@ namespace WpfHello
     public partial class MainWindow : Window
     {
         bool isDataDirty = false;
+        public MyWindow myWin { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            lbl.Content = "Добрый день";
+            lbl.Content = "Добрый день!";
             setBut.IsEnabled = false; 
             retBut.IsEnabled = false;
+            Top = 25;
+            Left = 25;
         }
 
         private void setBut_Click(object sender, RoutedEventArgs e)
@@ -36,7 +37,7 @@ namespace WpfHello
             System.IO.StreamWriter sw = null; 
             try
             {
-                sw = new System.IO.StreamWriter("/Users/wshamin/username.txt");
+                sw = new System.IO.StreamWriter("username.txt");
                 sw.WriteLine(setText.Text);
             }
             catch (Exception ex)
@@ -45,7 +46,8 @@ namespace WpfHello
             }
             finally
             {
-                if (sw != null) sw.Close();
+                if (sw != null)
+                    sw.Close();
                 retBut.IsEnabled = true;
                 isDataDirty = false;
             }
@@ -56,11 +58,8 @@ namespace WpfHello
             System.IO.StreamReader sr = null; 
             try
             {
-                using (sr = new System.IO.StreamReader("/Users/wshamin/username.txt")) 
-                {
+                using (sr = new System.IO.StreamReader("username.txt"))
                     retLabel.Content = "Приветствую Вас, уважаемый " + sr.ReadToEnd();
-                }
-                    
             }
             catch (Exception ex)
             {
@@ -68,8 +67,10 @@ namespace WpfHello
             }
             finally
             {
-                if (sr != null) sr.Close();
+                if (sr != null)
+                    sr.Close();
             }
+
         }
 
         private void setText_TextChanged(object sender, TextChangedEventArgs e)
@@ -90,10 +91,21 @@ namespace WpfHello
                 }
             }
         }
-
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void New_Win_Click(object sender, RoutedEventArgs e)
+        {
+            if (myWin == null)
+                myWin = new MyWindow();
+            myWin.Owner = this;
+            var location = this.PointToScreen(new Point(0, 0));
+            myWin.Top = location.Y; 
+            myWin.Left = location.X + this.Width;
+            
+            myWin.Show();
         }
     }
 }

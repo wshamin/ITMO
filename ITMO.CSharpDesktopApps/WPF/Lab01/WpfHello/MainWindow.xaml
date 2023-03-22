@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHello"
         mc:Ignorable="d"
-        Title="MyTitle" Height="350" Width="500" MinHeight="350" MinWidth="300" Closing="Window_Closing">
+        Title="WpfHello" Height="350" Width="500" MinHeight="350" MinWidth="300" Closing="Window_Closing">
     <Grid>
         <Menu HorizontalAlignment="Left" VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="Exit" Click="MenuItem_Click_1"/>
             </MenuItem>
         </Menu>
-        <Label x:Name="lbl" HorizontalAlignment="Center" VerticalAlignment="Top">Пуск</Label>
-        <Button Name="setBut" Content="Set Name" HorizontalAlignment="Left" Margin="110,110,0,0" VerticalAlignment="Top" Click="setBut_Click"/>
-        <Button Name="retBut" Content="Ret Name" HorizontalAlignment="Left" Margin="110,220,0,0" VerticalAlignment="Top" Click="retBut_Click"/>
-        <Label Name="retLabel" Content="" HorizontalAlignment="Left" Margin="110,250,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="setText" HorizontalAlignment="Left" Margin="330,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="setText_TextChanged"/>
+        <Label x:Name="lbl" HorizontalAlignment="Center" VerticalAlignment="Top">
+            Пуск
+        </Label>
+        <Button x:Name="setBut" Content="Set Name" HorizontalAlignment="Left" Margin="53,54,0,0" VerticalAlignment="Top" Click="setBut_Click"/>
+        <Button x:Name="retBut" Content="Ret Name" HorizontalAlignment="Left" Margin="53,126,0,0" VerticalAlignment="Top" Click="retBut_Click"/>
+        <TextBox x:Name="setText" HorizontalAlignment="Left" Margin="186,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Height="20" TextChanged="setText_TextChanged"/>
+        <Label x:Name="retLabel" Content="" HorizontalAlignment="Left" Margin="186,111,0,0" VerticalAlignment="Top" Height="49" Width="291" RenderTransformOrigin="0.498,0.525"/>
+        <Button x:Name="New_Win" Content="New Win" HorizontalAlignment="Left" Margin="53,220,0,0" VerticalAlignment="Top" Width="56" Click="New_Win_Click"/>
+        <TextBox x:Name="txtBlock" HorizontalAlignment="Left" Margin="186,205,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="75" Height="50"/>
     </Grid>
 </Window>
