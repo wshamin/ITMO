@@ -1,17 +1,23 @@
 package Task11.Subtask02;
 
+import java.util.concurrent.CountDownLatch;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
         Counter counter = new Counter();
-        Thread[] threads = new Thread[100];
+        int numberOfThreads = 100;
+        CountDownLatch latch = new CountDownLatch(numberOfThreads);
+        Thread[] threads = new Thread[numberOfThreads];
 
         for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread(new Incrementer(counter));
+            threads[i] = new Thread(new Incrementer(counter, latch));
             threads[i].start();
         }
 
-        for (Thread thread : threads) {
-            thread.join();
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
         System.out.println("Конечное число: " + counter.getCount());
