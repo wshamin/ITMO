@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commit | Обратная связь</title>
+</head>
+<body>
+    <h1>Обратная связь</h1>
+    <form action="submit_form.html" method="post">
+        <label for="name">Ваше имя:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="email">Ваш email:</label><br>
+        <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br>
+        <label for="message">Ваше сообщение:</label><br>
+        <textarea id="message" name="message" required></textarea><br>
+        <input type="submit" value="Отправить">
+    </form>
+    <a href="index.html">На главную</a>
+</body>
+</html>
