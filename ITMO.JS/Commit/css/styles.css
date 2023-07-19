@@ -181,29 +181,29 @@ a:focus {
 }
 
 .card {
-    display: flex; /* добавляем */
-    flex-direction: column; /* добавляем */
-    justify-content: space-between; /* добавляем */
-    align-items: center; /* добавляем */
-    width: 40%; /* установка ширины карточки */
+    display: flex;  
+    flex-direction: column;  
+    justify-content: space-between;  
+    align-items: center;  
+    width: 40%; 
     height: 352px;
     border: 5px solid #1c699d;
     margin: 32px 0 32px 32px;
-    padding: 10px; /* добавляем */
+    padding: 10px;  
 }
 
 .card-content {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* добавляем */
-    height: 100%; /* добавляем */
+    align-items: center;
+    height: 100%;
 }
 
 .card-text, .card-img {
-    display: flex; /* добавляем */
-    flex-direction: column; /* добавляем */
-    justify-content: center; /* добавляем */
-    align-items: center; /* добавляем */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 50%;
 }
 
@@ -230,7 +230,7 @@ a:focus {
 }
 
 #tariffs-card-container .card {
-    width: 32%; /* Чуть увеличьте ширину карточек */
+    width: 32%; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -313,7 +313,7 @@ a:focus {
 }
 
 #fourth-title iframe {
-    max-width: 100%; /* Делаем видео отзывчивым на размер экрана */
+    max-width: 100%; 
 }
 
 .intro-word {
